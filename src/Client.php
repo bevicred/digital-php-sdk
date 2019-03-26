@@ -19,7 +19,7 @@ class Client
      * @param string $endpoint
      * @param array $params
      *
-     * @return mixed
+     * @return Result
      * @throws Exception
      */
     public function post($endpoint="", $params=[])
@@ -39,14 +39,22 @@ class Client
         curl_setopt_array($ch, [
             CURLOPT_HTTPHEADER => $header,
             CURLOPT_POST => TRUE,
-            CURLOPT_USERAGENT => "PHP Client",
-            CURLOPT_REFERER => "PHP Client",
+            CURLOPT_USERAGENT => "PHP SDK",
+            CURLOPT_REFERER => $_SERVER['REMOTE_ADDR'],
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HTTPAUTH => CURLAUTH_BASIC,
             CURLOPT_POSTFIELDS => $params
         ]);
 
-        return json_decode($ch, true);
+        $result = new Result();
+
+        $result->setContent(json_decode(curl_exec($ch), true));
+
+        $info = curl_getinfo($ch);
+
+        $result->setStatusCode($info['http_code']);
+
+        return $result;
     }
 
     /**
