@@ -1,8 +1,5 @@
 <?php
 
-require __DIR__ . '/Result.php';
-require __DIR__ . '/Environment.php';
-
 class Client
 {
     /**
@@ -87,5 +84,57 @@ class Client
     public function setAuthorization($authorization="")
     {
         $this->authorization = $authorization;
+    }
+}
+
+interface Environment
+{
+    const SANDBOXING = "https://pos-api-sandboxing-dot-point-of-sale-212017.appspot.com";
+    const STAGING = "https://pos-api-staging-dot-point-of-sale-212017.appspot.com";
+    const PRODUCTION = "https://pos-api-dot-point-of-sale-212017.appspot.com";
+}
+
+class Result
+{
+    /**
+     * @var array
+     */
+    private $content;
+
+    /**
+     * @var int
+     */
+    private $statusCode;
+
+    /**
+     * @return array
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param array $content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatusCode()
+    {
+        return $this->statusCode;
+    }
+
+    /**
+     * @param int $statusCode
+     */
+    public function setStatusCode($statusCode)
+    {
+        $this->statusCode = $statusCode;
     }
 }
