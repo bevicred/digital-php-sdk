@@ -1,0 +1,13 @@
+{
+  "name": "phphacks/zend-jobs",
+  "description": "Bevicred Digital PHP SDK",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "João Carlos Fachini",
+      "email": "joao.carlos@bevicred.com.br"
+    }
+  ],
+  "minimum-stability": "stable"
+}
