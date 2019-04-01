@@ -9,8 +9,8 @@
       "email": "joao.carlos@bevicred.com.br"
     }
   ],
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "autoload": {
-    "classmap": ["src/", "Client.php"]
+    "files": ["src/Client.php"]
   }
 }
