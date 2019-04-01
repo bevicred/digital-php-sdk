@@ -4,6 +4,7 @@ Compatível com PHP >= 5.6
 
 # Instalação  
 ```composer require bevicred-digital/php-sdk ```  
+
 Ou apenas baixe e copie o Client.php para onde for usar.  
 
 # Exemplo de utilização
